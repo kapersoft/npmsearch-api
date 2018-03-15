@@ -38,7 +38,6 @@ class NpmSearchTest extends TestCase
     {
         $npmSearch = new NpmSearch();
 
-        dd($npmSearch->search('kapersoft'));
         $this->assertInstanceOf(NpmSearch::class, $npmSearch);
     }
 
