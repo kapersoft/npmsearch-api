@@ -1,0 +1,49 @@
+{
+    "name": "kapersoft/npmsearch-api",
+    "description": "Search for NPM packages using npmsearch.com API",
+    "keywords": [
+        "kapersoft",
+        "npmsearch-api",
+        "npmsearch",
+        "npm",
+        "search",
+        "packages",
+        "package"
+    ],
+    "homepage": "https://github.com/kapersoft/npmsearch-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":Jan Willem Kaper",
+            "email": "kapersoft@gmail.com",
+            "homepage": "https://kapersoft.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "larapack/dd": "^1.0",
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kapersoft\\NpmSearch\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SKapersoft\\Kapersoft\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
