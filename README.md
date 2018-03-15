@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kapersoft/npmsearch-api.svg?style=flat-square)](https://packagist.org/packages/kapersoft/npmsearch-api)
 [![Build Status](https://img.shields.io/travis/kapersoft/npmsearch-api/master.svg?style=flat-square)](https://travis-ci.org/kapersoft/npmsearch-api)
-[![StyleCI](https://styleci.io/repos/0000/shield?branch=master)](https://styleci.io/repos/0000)
+[![StyleCI](https://styleci.io/repos/125428771/shield?branch=master)](https://styleci.io/repos/125428771)
 [![Quality Score](https://img.shields.io/scrutinizer/g/kapersoft/npmsearch-api.svg?style=flat-square)](https://scrutinizer-ci.com/g/kapersoft/npmsearch-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/kapersoft/npmsearch-api.svg?style=flat-square)](https://packagist.org/packages/kapersoft/npmsearch-api)
 
@@ -40,8 +40,6 @@ $npmSearch->search('jquery');
 The result will be array that looks like this:
 
 ``` php
-
-
 array:4 [
   "results" => array:1 [
     0 => array:3 [
@@ -90,14 +88,14 @@ Below the complete list of all search methods:
 - `searchByCreated($created, $start = 0, $rows = 10)`
 - `searchByDependencies($dependencies, $start = 0, $rows = 10)`
 - `searchByDescription($Description, $start = 0, $rows = 10)`
-- `searchByDevDependencies($DevDependencies, $start = 0, $rows = 10)`
+- `searchByDevDependencies($devDependencies, $start = 0, $rows = 10)`
 - `searchByHomepage($homepage, $start = 0, $rows = 10)`
 - `searchByKeywords($keywords, $start = 0, $rows = 10)`
-- `searchByMaintainers($Maintainers, $start = 0, $rows = 10)`
+- `searchByMaintainers($maintainers, $start = 0, $rows = 10)`
 - `searchByModified($modified, $start = 0, $rows = 10)`
 - `searchByName($name, $start = 0, $rows = 10)`
 - `searchByReadme($readme, $start = 0, $rows = 10)`
-- `searchByRepository($Repository, $start = 0, $rows = 10)`
+- `searchByRepository($repository, $start = 0, $rows = 10)`
 - `searchByScripts($scripts, $start = 0, $rows = 10)`
 - `searchByTimes($times, $start = 0, $rows = 10)`
 - `searchByVersion($version, $start = 0, $rows = 10)`
