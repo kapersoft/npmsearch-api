@@ -3,13 +3,13 @@
 namespace Kapersoft\NpmSearch\Test;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use GuzzleHttp\MiddleWare;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Kapersoft\NpmSearch\NpmSearch;
 use PHPUnit\Framework\TestCase;
+use Kapersoft\NpmSearch\NpmSearch;
+use GuzzleHttp\Handler\MockHandler;
 
 class NpmSearchTest extends TestCase
 {
@@ -28,7 +28,7 @@ class NpmSearchTest extends TestCase
     protected $testUrl = 'https://my_url.test/query';
 
     /**
-     * Test for itCanBeInstantiatedWithoutParameters
+     * Test for itCanBeInstantiatedWithoutParameters.
      *
      * @test
      *
@@ -43,7 +43,7 @@ class NpmSearchTest extends TestCase
     }
 
     /**
-     * Test for itCanBeInstantiatedWithAGuzzleClient
+     * Test for itCanBeInstantiatedWithAGuzzleClient.
      *
      * @test
      *
@@ -53,13 +53,13 @@ class NpmSearchTest extends TestCase
     {
         $guzzleClient = new \GuzzleHttp\Client;
         $npmSearch = new NpmSearch('', $guzzleClient);
-        
+
         $this->assertInstanceOf(NpmSearch::class, $npmSearch);
         $this->assertSame($npmSearch->guzzleClient, $guzzleClient);
     }
 
     /**
-     * Test for itCanBeInstantiatedWithABaseUrl
+     * Test for itCanBeInstantiatedWithABaseUrl.
      *
      * @test
      *
@@ -68,13 +68,13 @@ class NpmSearchTest extends TestCase
     public function itCanBeInstantiatedWithABaseUrl()
     {
         $npmSearch = new NpmSearch($this->testUrl);
-       
+
         $this->assertInstanceOf(NpmSearch::class, $npmSearch);
         $this->assertSame($this->testUrl, $npmSearch->baseUrl);
     }
 
     /**
-     * Test for itCanSearch
+     * Test for itCanSearch.
      *
      * @test
      *
@@ -86,13 +86,13 @@ class NpmSearchTest extends TestCase
 
         $this->assertSame(['result' => 'ok'], $response);
         $this->assertSame(
-            $this->testUrl . '?q=jquery&start=0&rows=10',
-            (string)$this->getLastRequest()->getUri()
+            $this->testUrl.'?q=jquery&start=0&rows=10',
+            (string) $this->getLastRequest()->getUri()
         );
     }
-    
+
     /**
-     * Test for itCanSearch
+     * Test for itCanSearch.
      *
      * @test
      *
@@ -104,59 +104,57 @@ class NpmSearchTest extends TestCase
 
         $this->assertSame(['result' => 'ok'], $response);
         $this->assertSame(
-            $this->testUrl . '?q=jquery&start=100&rows=5',
-            (string)$this->getLastRequest()->getUri()
+            $this->testUrl.'?q=jquery&start=100&rows=5',
+            (string) $this->getLastRequest()->getUri()
         );
     }
 
     /**
-     * Test for itCanSearchUsingAParameter
+     * Test for itCanSearchUsingAParameter.
      *
      * @test
      *
      * @param string $searchParameter Search parameter used for testing
      *
      * @dataProvider searchParameterProvider
-     *
      */
     public function itCanSearchUsingAParameter(string $searchParameter)
     {
-        $method = 'searchUsing' . $searchParameter;
+        $method = 'searchUsing'.$searchParameter;
 
         $response = $this->getMockNpmSearch()->{$method}('jquery');
 
         $this->assertSame(['result' => 'ok'], $response);
         $this->assertSame(
-            $this->testUrl . '?q=' . $searchParameter . '%3Ajquery&start=0&rows=10',
-            (string)$this->getLastRequest()->getUri()
+            $this->testUrl.'?q='.$searchParameter.'%3Ajquery&start=0&rows=10',
+            (string) $this->getLastRequest()->getUri()
         );
     }
 
-        /**
-     * Test for itCanSearchUsingAParameter
+    /**
+     * Test for itCanSearchUsingAParameter.
      *
      * @test
      *
      * @param string $searchParameter Search parameter used for testing
      *
      * @dataProvider searchParameterProvider
-     *
      */
     public function itCanSearchUsingAParameterWithStartAndRows(string $searchParameter)
     {
-        $method = 'searchUsing' . $searchParameter;
+        $method = 'searchUsing'.$searchParameter;
 
         $response = $this->getMockNpmSearch()->{$method}('jquery', 100, 5);
 
         $this->assertSame(['result' => 'ok'], $response);
         $this->assertSame(
-            $this->testUrl . '?q=' . $searchParameter . '%3Ajquery&start=100&rows=5',
-            (string)$this->getLastRequest()->getUri()
+            $this->testUrl.'?q='.$searchParameter.'%3Ajquery&start=100&rows=5',
+            (string) $this->getLastRequest()->getUri()
         );
     }
 
     /**
-     * Create a mock NpmSearch object
+     * Create a mock NpmSearch object.
      *
      * @return NpmSearch
      */
@@ -176,7 +174,7 @@ class NpmSearchTest extends TestCase
 
         // Create Guzzle Client with mockHandler
         $mockGuzzleClient = new Client([
-            'handler' => $mockHandler
+            'handler' => $mockHandler,
         ]);
 
         // Return NpmSearch with mockGuzzleClient
@@ -184,7 +182,7 @@ class NpmSearchTest extends TestCase
     }
 
     /**
-     * Get Last request from mock Guzzle client
+     * Get Last request from mock Guzzle client.
      *
      * @return Request
      */
@@ -194,7 +192,7 @@ class NpmSearchTest extends TestCase
     }
 
     /**
-     * Provider for search parameters
+     * Provider for search parameters.
      *
      * @return array
      */
