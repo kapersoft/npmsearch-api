@@ -104,7 +104,7 @@ Below the complete list of all search methods:
 ### Testing
 In the `/tests`-folder is one test defined:
 
-- `TestClient.php` tests the Kapersoft\NpmSearch\NpmSearch-class using mock Guzzle objects;
+- `NpmSearchTest.php` tests the `Kapersoft\NpmSearch\NpmSearch-class` using mock Guzzle objects;
 
 You can run the tests in your terminal:
 
