@@ -12,7 +12,6 @@ use GuzzleHttp\Client;
  *
  * @link     http://github.com/kapersoft/npmsearch-api
  */
-
 class NpmSearch
 {
     /** @var Client */
@@ -61,7 +60,7 @@ class NpmSearch
      */
     public function searchUsingAuthor(string $author, int $start = 0, int $rows = 10):array
     {
-        return $this->search('author:' . $author, $start, $rows);
+        return $this->search('author:'.$author, $start, $rows);
     }
 
     /**
@@ -74,7 +73,7 @@ class NpmSearch
      */
     public function searchUsingCreated(string $created, int $start = 0, int $rows = 10):array
     {
-        return $this->search('created:' . $created, $start, $rows);
+        return $this->search('created:'.$created, $start, $rows);
     }
 
     /**
@@ -87,7 +86,7 @@ class NpmSearch
      */
     public function searchUsingDependencies(string $dependencies, int $start = 0, int $rows = 10):array
     {
-        return $this->search('dependencies:' . $dependencies, $start, $rows);
+        return $this->search('dependencies:'.$dependencies, $start, $rows);
     }
 
     /**
@@ -100,7 +99,7 @@ class NpmSearch
      */
     public function searchUsingDescription(string $description, int $start = 0, int $rows = 10):array
     {
-        return $this->search('description:' . $description, $start, $rows);
+        return $this->search('description:'.$description, $start, $rows);
     }
 
     /**
@@ -113,7 +112,7 @@ class NpmSearch
      */
     public function searchUsingDevDependencies(string $devDependencies, int $start = 0, int $rows = 10):array
     {
-        return $this->search('devDependencies:' . $devDependencies, $start, $rows);
+        return $this->search('devDependencies:'.$devDependencies, $start, $rows);
     }
 
     /**
@@ -126,7 +125,7 @@ class NpmSearch
      */
     public function searchUsingHomepage(string $homepage, int $start = 0, int $rows = 10):array
     {
-        return $this->search('homepage:' . $homepage, $start, $rows);
+        return $this->search('homepage:'.$homepage, $start, $rows);
     }
 
     /**
@@ -139,7 +138,7 @@ class NpmSearch
      */
     public function searchUsingKeywords(string $keywords, int $start = 0, int $rows = 10):array
     {
-        return $this->search('keywords:' . $keywords, $start, $rows);
+        return $this->search('keywords:'.$keywords, $start, $rows);
     }
 
     /**
@@ -152,7 +151,7 @@ class NpmSearch
      */
     public function searchUsingMaintainers(string $maintainers, int $start = 0, int $rows = 10):array
     {
-        return $this->search('maintainers:' . $maintainers, $start, $rows);
+        return $this->search('maintainers:'.$maintainers, $start, $rows);
     }
 
     /**
@@ -165,7 +164,7 @@ class NpmSearch
      */
     public function searchUsingModified(string $modified, int $start = 0, int $rows = 10):array
     {
-        return $this->search('modified:' . $modified, $start, $rows);
+        return $this->search('modified:'.$modified, $start, $rows);
     }
 
     /**
@@ -178,7 +177,7 @@ class NpmSearch
      */
     public function searchUsingName(string $name, int $start = 0, int $rows = 10):array
     {
-        return $this->search('name:' . $name, $start, $rows);
+        return $this->search('name:'.$name, $start, $rows);
     }
 
     /**
@@ -191,7 +190,7 @@ class NpmSearch
      */
     public function searchUsingReadme(string $readme, int $start = 0, int $rows = 10):array
     {
-        return $this->search('readme:' . $readme, $start, $rows);
+        return $this->search('readme:'.$readme, $start, $rows);
     }
 
     /**
@@ -204,7 +203,7 @@ class NpmSearch
      */
     public function searchUsingRepository(string $repository, int $start = 0, int $rows = 10):array
     {
-        return $this->search('repository:' . $repository, $start, $rows);
+        return $this->search('repository:'.$repository, $start, $rows);
     }
 
     /**
@@ -217,7 +216,7 @@ class NpmSearch
      */
     public function searchUsingScripts(string $scripts, int $start = 0, int $rows = 10):array
     {
-        return $this->search('scripts:' . $scripts, $start, $rows);
+        return $this->search('scripts:'.$scripts, $start, $rows);
     }
 
     /**
@@ -230,7 +229,7 @@ class NpmSearch
      */
     public function searchUsingTimes(string $times, int $start = 0, int $rows = 10):array
     {
-        return $this->search('times:' . $times, $start, $rows);
+        return $this->search('times:'.$times, $start, $rows);
     }
 
     /**
@@ -243,7 +242,7 @@ class NpmSearch
      */
     public function searchUsingVersion(string $version, int $start = 0, int $rows = 10):array
     {
-        return $this->search('version:' . $version, $start, $rows);
+        return $this->search('version:'.$version, $start, $rows);
     }
 
     /**
@@ -256,7 +255,7 @@ class NpmSearch
      */
     public function searchUsingRating(string $rating, int $start = 0, int $rows = 10):array
     {
-        return $this->search('rating:' . $rating, $start, $rows);
+        return $this->search('rating:'.$rating, $start, $rows);
     }
 
     /**
@@ -270,7 +269,7 @@ class NpmSearch
             ->get("{$this->baseUrl}", compact('query'))
             ->getBody()
             ->getContents();
-            
+
         return json_decode($packages, true);
     }
 }

@@ -19,7 +19,6 @@ use GuzzleHttp\Handler\MockHandler;
  *
  * @link     http://github.com/kapersoft/npmsearch-api
  */
-
 class NpmSearchTest extends TestCase
 {
     /**
