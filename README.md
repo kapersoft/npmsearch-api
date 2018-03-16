@@ -37,7 +37,7 @@ You can search packages using the `search`-method:
 $npmSearch->search('jquery');
 ```
 
-The result will be array that looks like this:
+The result will be an array that looks like this:
 
 ``` php
 array:4 [
