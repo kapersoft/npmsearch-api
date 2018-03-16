@@ -11,6 +11,15 @@ use PHPUnit\Framework\TestCase;
 use Kapersoft\NpmSearch\NpmSearch;
 use GuzzleHttp\Handler\MockHandler;
 
+/**
+ * Class NpmSearchTest.
+ *
+ * @author   Jan Willem Kaper <kapersoft@gmail.com>
+ * @license  MIT (see LICENSE.txt)
+ *
+ * @link     http://github.com/kapersoft/npmsearch-api
+ */
+
 class NpmSearchTest extends TestCase
 {
     /**
