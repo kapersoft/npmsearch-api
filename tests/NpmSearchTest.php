@@ -19,7 +19,6 @@ use GuzzleHttp\Handler\MockHandler;
  *
  * @link     http://github.com/kapersoft/npmsearch-api
  */
-
 class NpmSearchTest extends TestCase
 {
     /**
@@ -87,7 +86,7 @@ class NpmSearchTest extends TestCase
 
         $response = $npmSearch->search('jquery');
 
-        $this->assertStringStartsWith($npmSearch->baseUrl, (string)$this->getLastRequest()->getUri());
+        $this->assertStringStartsWith($npmSearch->baseUrl, (string) $this->getLastRequest()->getUri());
     }
 
     /**
@@ -131,7 +130,7 @@ class NpmSearchTest extends TestCase
     public function itHasStandardSetOfFields()
     {
         $npmSearch = $this->getMockNpmSearch();
-        
+
         $this->assertNotEmpty($npmSearch->fields);
     }
 
@@ -145,7 +144,7 @@ class NpmSearchTest extends TestCase
     public function itUsesStandardSetOfFieldsInRequest()
     {
         $npmSearch = $this->getMockNpmSearch();
-        
+
         $response = $npmSearch->search('jquery');
 
         $this->assertArraySubset(['fields' => implode('', $npmSearch->fields)], $this->getQueryFromLastRequest());
@@ -162,7 +161,7 @@ class NpmSearchTest extends TestCase
     {
         $npmSearch = $this->getMockNpmSearch();
         $npmSearch->fields = ['name'];
-        
+
         $response = $npmSearch->search('jquery');
 
         $this->assertArraySubset(['fields' => 'name'], $this->getQueryFromLastRequest());
@@ -249,6 +248,7 @@ class NpmSearchTest extends TestCase
     {
         $returnValue = [];
         parse_str($this->getLastRequest()->getUri()->getQuery(), $returnValue);
+
         return $returnValue;
     }
 
