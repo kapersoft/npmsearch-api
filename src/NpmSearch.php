@@ -12,25 +12,42 @@ use GuzzleHttp\Client;
  *
  * @link     http://github.com/kapersoft/npmsearch-api
  */
+
 class NpmSearch
 {
-    /** @var Client */
+    /**
+     * Guzzle Client
+     *
+     * @var Client */
     public $guzzleClient;
 
-    /** @var string */
-    public $baseUrl;
+    /**
+     * API base url;
+     *
+     * @var string */
+    public $baseUrl = 'https://npmsearch.com/query';
+
+    /**
+     * Fields returned by API
+     *
+     * @var array */
+    public $fields = ['author', 'description','maintainers', 'name',
+        'modified', 'rating', 'version'];
 
     /**
      * @param Client $client
      * @param string $baseUrl
      */
-    public function __construct($baseUrl = 'https://npmsearch.com/query', Client $guzzleClient = null)
+    public function __construct($baseUrl = '', Client $guzzleClient = null)
     {
+        if ($baseUrl !== '') {
+            $this->baseUrl = $baseUrl;
+        }
+
         if ($guzzleClient === null) {
             $guzzleClient = new Client();
         }
         $this->guzzleClient = $guzzleClient;
-        $this->baseUrl = $baseUrl;
     }
 
     /**
@@ -45,6 +62,7 @@ class NpmSearch
     {
         return $this->makeRequest([
             'q'      => $query,
+            'fields' => implode($this->fields),
             'start'  => $start,
             'rows'   => $rows,
         ]);
@@ -180,6 +198,19 @@ class NpmSearch
         return $this->search('name:'.$name, $start, $rows);
     }
 
+     /**
+     * Search package using rating.
+     *
+     * @param string $rating Rating
+     * @param int    $start  Start form
+     * @param int    $rows   Number of rows
+     * @return array
+     */
+    public function searchUsingRating(string $rating, int $start = 0, int $rows = 10):array
+    {
+        return $this->search('rating:'.$rating, $start, $rows);
+    }
+
     /**
      * Search package using readme.
      *
@@ -246,19 +277,6 @@ class NpmSearch
     }
 
     /**
-     * Search package using rating.
-     *
-     * @param string $rating Rating
-     * @param int    $start  Start form
-     * @param int    $rows   Number of rows
-     * @return array
-     */
-    public function searchUsingRating(string $rating, int $start = 0, int $rows = 10):array
-    {
-        return $this->search('rating:'.$rating, $start, $rows);
-    }
-
-    /**
      * @param array $query Query
      *
      * @return array
@@ -269,7 +287,7 @@ class NpmSearch
             ->get("{$this->baseUrl}", compact('query'))
             ->getBody()
             ->getContents();
-
+            
         return json_decode($packages, true);
     }
 }
