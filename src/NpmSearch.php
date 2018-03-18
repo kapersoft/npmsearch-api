@@ -12,27 +12,26 @@ use GuzzleHttp\Client;
  *
  * @link     http://github.com/kapersoft/npmsearch-api
  */
-
 class NpmSearch
 {
     /**
-     * Guzzle Client
+     * Guzzle Client.
      *
      * @var Client */
     public $guzzleClient;
 
     /**
-     * API base url;
+     * API base url;.
      *
      * @var string */
     public $baseUrl = 'https://npmsearch.com/query';
 
     /**
-     * Fields returned by API
+     * Fields returned by API.
      *
      * @var array */
-    public $fields = ['author', 'description','maintainers', 'name',
-        'modified', 'rating', 'version'];
+    public $fields = ['author', 'description', 'maintainers', 'name',
+        'modified', 'rating', 'version', ];
 
     /**
      * @param Client $client
@@ -198,7 +197,7 @@ class NpmSearch
         return $this->search('name:'.$name, $start, $rows);
     }
 
-     /**
+    /**
      * Search package using rating.
      *
      * @param string $rating Rating
@@ -287,7 +286,7 @@ class NpmSearch
             ->get("{$this->baseUrl}", compact('query'))
             ->getBody()
             ->getContents();
-            
+
         return json_decode($packages, true);
     }
 }
