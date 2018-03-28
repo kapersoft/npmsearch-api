@@ -6,7 +6,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/kapersoft/npmsearch-api.svg?style=flat-square)](https://scrutinizer-ci.com/g/kapersoft/npmsearch-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/kapersoft/npmsearch-api.svg?style=flat-square)](https://packagist.org/packages/kapersoft/npmsearch-api)
 
-This is an implementation of the [npmsearch.com](https://npmsearch.com) API for the PHP programming environment. More information about [npmsearch.com](https://npmsearch.com) and the API can be found at their [GitHub repository](https://github.com/nodesource/npmsearch).
+This is an implementation of [npmsearch.com](https://npmsearch.com) API for the PHP programming environment. More information about [npmsearch.com](https://npmsearch.com) and their API can be found at their [GitHub repository](https://github.com/nodesource/npmsearch).
 
 ## Installation
 
